@@ -1,0 +1,55 @@
+Số lần xuất hiện của CỤM
+* : 0-n  (ab)*   (ab){0,}
++ : 1-n
+? : 0-1
+{n} : bắt buộc phải có n kí tự, ko ít hơn và ko nhiều hơn. ( [0-9]{4} : phải 4 kí tự số )
+{n,m} : bắt buộc phải có từ n kí tự tới m kí tự. ( [0-9]{10,12} )
+{n, } : bắt buộc phải có từ n kí tự tới bao nhiêu cũng được. ( [0-9]{10, } )
+
+^..$ : phải bắt đầu và kết thúc
+^..  : phải bắt đầu, còn kết thúc thế nào cũng được
+..$  : phải kết thúc, còn bắt đầu thế nào cũng được
+
+
+[0-9] : ký tự phải nằm trong 0-9
+[^0-9] : ký tự không được phép nằm trong 0-9
+
+Cách gôm cụm
+[]  : Phải là 1 kí tự bất kì trong đó
+   [01235] [0-35] : Là kí tự 0, 1 , 2 , 3 , 5 
+()  : Gôm Cụm
+   (123|432) : Điều kiện OR là '123' hoặc '432'
+   Dùng khi muốn sử dụng điều kiện OR hoặc dùng các kí hiệu *,+,?
+
+(12)+  khác với 12+
+(12)+ : 1212121212
+12+   : 1222222
+
+([0-9]{4})+ : chuỗi số, có số kí tự là bội số của 4
+
+[A-z] [A-Za-z]
+
+[A-MN-Z]  [A-Z]
+
+
+^e$  === 'e'
+
+ 
+
+030~035 = 030 031 032 033 034 055
+091~099
+((09[1-9])|(03[0-5]))[0-9]{7}
+
+^(0|\+?84)(9|8|3)[0-9]{8}$
+ 
+
+\w  = [0-9a-zA-Z_]
+
+ 
+
+https://www.w3schools.com/js/js_regexp.asp
+
+ 
+
+blank  = ""
+space  = " "

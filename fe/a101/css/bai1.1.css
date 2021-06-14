@@ -1,0 +1,53 @@
+.wrapper{
+	background: #fff;
+    border: 1px solid red;
+
+}
+
+
+.item{
+    margin: 0 auto;
+    width: 80%;
+}
+
+.item .logo{
+    height: 100px;
+    background-color: dimgray;
+}
+.item .navigation{
+    background-color: dimgray;
+    height: 30px;
+    margin: 5px 0;
+}
+
+.item .header{
+    background-color: dimgray;
+    height: 100px;
+    margin-bottom: 5px ;
+}
+
+.item .sideBar{
+    background-color: dimgray;
+    width: 28%;
+    height: 100px;
+    float: left;
+    margin-right: 4%;
+}
+
+
+.item .bodyArea{
+    background-color: dimgray;
+    float: left;
+    width: 68%;
+    height: 100px;
+}
+
+
+.item .footer{
+    margin-top: 110px;
+    clear: left;
+    background-color: dimgray;
+    width: 100%;
+    height: 20px;
+}
+

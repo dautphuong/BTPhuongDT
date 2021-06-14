@@ -1,0 +1,57 @@
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+</body>
+	<form action="http://google.com" onsubmit="return validateForm()">
+		<input type="text" id="idtext" name="nametext" placeholder="Phone" />
+		<p id="idtextloi" class="text-danger"></p>
+		
+		<input type="text" id="idtext1" name="nametext1" placeholder="Email"  />
+		<p id="idtextloi1" class="text-danger"></p>
+		
+		<button type="submit" >Button tạo ra để submit</button>
+		<button type="button" id="idbutton">Test Ket Qua</button>
+		<!-- Button này tạo ra để test event ko được gắn vào -->
+		<button type="button" id="idbuttonVodung">Button Vô Dụng</button>
+	</form>
+	
+	<script>
+		/* https://www.w3schools.com/jsref/jsref_obj_regexp.asp */
+		/* https://www.regextester.com/ */
+		
+		$(document).ready(functionLoad);
+		
+		function functionLoad() {
+			$("button#idbutton").click(validateForm);
+			$("button#idbutton").click(funtionAlert);
+		};
+		
+		function funtionAlert(){
+			// alert("chào");
+		}
+		
+		function validateForm() {
+			var kq = true;
+			// 10 số và bắt đầu là 09 08 03
+			var patt = /^0(3|9|8)[0-9]{8}$/; // /^0[398][0-9]{8}$/;
+			$("#idtextloi").html("");  // Dòng này có cần thiết không ?
+			var valueTextbox = $("input[type='text']#idtext").val();
+			if( ! patt.test(valueTextbox)) {
+				kq= false;
+				$("#idtextloi").html("Bạn Đã Nhập Lỗi Format Số Điện Thoại, Mời Nhập Lại !");
+			}
+			
+			// đúng format Gmail // (gmail.com|fsoft.com.vn)
+			var patt1 = /^[a-z][a-z0-9]*@gmail.com$/i;
+			$("#idtextloi1").html(""); // .empty() // innerHTML
+			var valueTextbox1 = $("input[type='text']#idtext1").val();
+			if( ! patt1.test(valueTextbox1)) {
+				kq= false;
+				$("#idtextloi1").html("Bạn Đã Nhập Lỗi Format Email, Mời Nhập Lại !");
+			}
+			return kq;
+		}
+	</script>
+</body>
+</html>

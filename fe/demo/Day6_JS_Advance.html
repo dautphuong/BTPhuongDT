@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+  <title>Hello, world!</title>
+  
+  <style>
+	body {
+		height: 5000px;
+	}
+  
+  </style>
+</head>
+<body>
+  <h1 class="text-danger"><marquee> Hello JS Day 6 ! </marquee></h1>
+  <hr/>
+  
+  <div>
+	<haha>
+		<span>Span1 Content - div</span>
+		<span>Span2 Content - div</span>
+	</haha>
+  </div>
+  
+  <!-- <div onmouseover="console.log('Mouse Over Div');" onmouseout="console.log('Mouse Out');" onclick="console.log('div click');"> -->
+<!--      <h2> This is inside the division - Test Event </h2> -->
+  <!-- </div>  -->
+
+  <hihi id="taglv1" style="background-color: violet;" id="hihitag" class="hihitag">
+	<haha id="taglv2" class="hihichild">
+		<span id="taglv3">Span Content - Hihi</span>
+	</haha>
+  </hihi>
+  
+  <hr/>
+  <div class="container">
+	<button onclick="window.open('https://google.com/');">Open Google.Com</button>
+	<button onclick="window.close();">Close</button>
+	<button onclick="openWin();">Open SubWindow</button>
+	<button onclick="moveWin();">Move SubWindow</button>
+	<button onclick="resizeWin();">Resize SubWindow</button>
+	<button onclick="funcSetInterval();">SetInterval</button>
+	<button onclick="funcClearInterval();">ClearInterval</button>
+	<button onclick="funcSetTimeOut();">SetTimeOut</button>
+	<button onclick="funcClearTimeOut();">ClearTimeOut</button>
+	<button onclick="funcScrollBy();">ScrollBy</button>
+	<button onclick="funcScrollTo();">ScrollTo</button>
+  </div>
+  <hr/>
+  <button id="btnEvent">Event Click</button>
+  <input type="text" placeholder="Test Demo Event"
+		 onmouseover="console.log('Mouse Over Input');"
+		 onmouseout="console.log('Mouse Out Input');"
+		 onfocus="console.log('Focus Input');"
+		 onblur="console.log('Blur Input');"
+   />
+  
+  <form onsubmit="alert('Form data will be submitted to the server!');">
+	<input type="submit" value="Btn1" />
+	<button type="button" >Btn2</button>
+  </form>
+  <input type="submit" value="Btn11111" />
+  <script>
+	/*
+		window.location.assign(url) : di chuyển tới url và có lưu history
+		window.location.replace(url) : di chuyển tới url và Không lưu history
+		
+		window.history.length
+		window.history.back() : di chuyển về history (trang) trước
+		window.history.forward() : di chuyển tới history (trang) sau
+		window.history.go(number) :
+				+ giá trị âm là di chuyển về trước
+				+ giá trị dương là di chuyển tới sau
+	*/
+  
+	// function func1() { console.log("func1"); }
+	// var func2 = function() { console.log("func2"); }
+	// var func3 = () => { console.log("func3"); }
+	
+	// function testCallFunc(){
+	// 	var func1 = "12321";
+	// 	func1();
+	// }
+	
+	// css :  height : 10vh; em rem 
+	
+	// function sayHi(){ alert("Hello");}
+	// /*window.*/sayHi();
+	// alert(window.innerHeight);
+	
+	/* https://www.w3schools.com/jsref/obj_window.asp */
+	
+	var myWindow;
+	function openWin() {
+	  myWindow=window.open("", "myWindow", "width=200, height=100");
+	  myWindow.document.write("<p>This is 'myWindow'</p>");
+	}
+	function moveWin() {
+	  myWindow.moveTo(500, 100);
+	  myWindow.focus();
+	}
+  	function resizeWin() {
+  	  myWindow.resizeTo(250, 250);
+  	  myWindow.focus();
+  	}
+	
+	var myInterval;
+	function funcSetInterval() {
+	  myInterval = setInterval(function(){ alert("Hello setInterval"); }, 3000);
+	}
+	function funcClearInterval() {
+	  clearInterval(myInterval);
+	}
+	
+	var myTimeOut;
+	function funcSetTimeOut() {
+	  myTimeOut = setTimeout(function(){ alert("Hello setTimeout"); }, 3000);
+	}
+	function funcClearTimeOut() {
+	  clearTimeout(myTimeOut);
+	}
+	
+	function funcScrollBy() {
+	  scrollBy(0, 20);
+	}
+	function funcScrollTo() {
+	  scrollTo(0, 20);
+	}
+	
+	function alertCustom1(e, mes) {
+		alert("alertCustom1");
+	}
+	
+	function alertCustom2(e, mes) {
+		alert("alertCustom2");
+	}
+	
+	// document.getElementById("hihitag").style.color = "red"
+	// document.getElementsByTagName("hihi")[0].style.color = "yellow"
+	// document.getElementsByClassName("hihitag")[0].style.color = "yellow"
+	// document.querySelectorAll("hihi span") 
+	// document.querySelectorAll("hihi > span")
+	// document.querySelectorAll("haha.hihichild > span")
+	// 
+
+	/*
+		element.addEventListener(event, function, useCapture)
+		element.removeEventListener(event, function, useCapture)
+		useCapture : Optional. A Boolean value that specifies whether the event should be executed in the capturing or in the bubbling phase
+				+ true - The event handler is executed in the capturing phase
+				+ false- Default. The event handler is executed in the bubbling phase
+			- Capturing phase – the event goes down to the element.
+			- Target phase – the event reached the target element.
+			- Bubbling phase – the event bubbles up from the element
+		// https://javascript.info/bubbling-and-capturing#:~:text=Capturing%20phase%20%E2%80%93%20the%20event%20goes,bubbles%20up%20from%20the%20element.
+	*/ 
+	// var taglv1 = document.getElementById("taglv1");
+	// var taglv2 = document.getElementById("taglv2");
+	// var taglv3 = document.getElementById("taglv3");
+	// // true  : taglv1 -> taglv2 -> taglv3
+	// // false : taglv3 -> taglv2 -> taglv1
+	// var useCapture = true;
+	// taglv1.addEventListener("click", function() { alert("taglv1"); }, useCapture);
+	// taglv2.addEventListener("click", function() { alert("taglv2"); }, useCapture);
+	// taglv3.addEventListener("click", function() { alert("taglv3"); }, useCapture);
+	
+	var btnEvent = document.getElementById("btnEvent");
+	// btnEvent.addEventListener("click", alertCustom1, false);
+	// btnEvent.addEventListener("click", alertCustom1, true);
+	// btnEvent.addEventListener("click", alertCustom1, true); // Là function có Tên và giống function dòng trên nên không add vào nữa
+	// btnEvent.addEventListener("click", alertCustom2, true);
+	// btnEvent.removeEventListener("click", alertCustom1, true);
+	
+	// btnEvent.addEventListener("click", function() { alert("event1"); });
+	// btnEvent.addEventListener("click", function() { alert("event1"); }); // Là function không Tên và nên không biết có giống function dòng trên hay không nên sẽ add vào
+	// btnEvent.addEventListener("click", function() { alert("event1"); }); // show 3 lần
+	// btnEvent.addEventListener("click", function() { alert("event2"); });
+	// btnEvent.removeEventListener("click", function() { alert("event1"); }); // xóa đi function mới tạo nên không thể remove được
+	
+	// var funcEvent = function() { alert("event1") };
+	// btnEvent.addEventListener("click", funcEvent);
+	// btnEvent.addEventListener("click", funcEvent);
+	// btnEvent.addEventListener("click", funcEvent); // show 1 lần
+	// btnEvent.addEventListener("click", funcEvent, true); // show thêm 1 lần nữa
+	// btnEvent.addEventListener("click", funcEvent, true); // không show thêm
+	// btnEvent.removeEventListener("click", funcEvent); // Xóa đi function đã định nghĩa sẵn nên có thể remove được
+	// btnEvent.removeEventListener("click", funcEvent, true); // Xóa đi function đã định nghĩa sẵn nên có thể remove được
+  </script>
+</body>
+
+</html>

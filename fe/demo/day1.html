@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // alert("hello world !!!")
+        // document.write("hello class 02")
+        // if (confirm('you want continue ?')) {
+        //     alert('ok')
+        // } else {
+        //     alert('cancel')
+        // }
+
+        // var phone = prompt('please input phone number', '09xxxxxxxx')
+        // alert('phone :' + phone)
+
+        var myCar = ["VinFast", "Mercedez"]
+        myCar.push("BMW");
+        console.log(myCar[0], myCar[2])
+
+        myCar = myCar.concat(["Honda", "mazda"])
+        console.log(myCar.toString())
+    </script>
+</head>
+
+<body>
+
+    <button onclick="getURL();">Get Page URL</button>
+    <button onclick="loadNewPage();">Load New Page</button>
+    <button onclick="replaceNewPage();">Replace New Page</button>
+    <button onclick="forceReload();">Reload Page</button>
+    <button onclick="getBack();">The previous URL</button>
+    <button onclick="goForward();">Go Forward URL</button>
+
+    <div id="div1">
+        <p id="p1">This is a paragraph.</p>
+        <p id="p2">This is another paragraph</p>
+        <button onclick="replaceE()">Replace p1 element</button>
+        <button onclick="removeE()">Remove p1 element</button>
+    </div>
+
+    <ul onclick="ulClick()">
+        <li onclick="liClick()">Menu 1</li>
+        <li>Menu 2</li>
+    </ul>
+
+    <div>
+        <input type="text" name="myDom" id="myDom" class="myClass" />
+        <button onclick="myFunction()">CLick</button>
+    </div>
+
+    <div>
+        <button onclick="add()">Button add</button>
+    </div>
+
+    <script>
+        var x = 0; //number
+        console.log(typeof(x))
+        var y = '0'; //String
+
+        console.log(x == y); // true
+        console.log(x === y); // false
+
+        var z = 'hello';
+        console.log(z.charAt(1))
+
+        var r = 'a b c';
+        var arr = r.split(' ')
+        arr = ['a', 'b', 'c']
+        var t = {
+            name: 'viet',
+            age: 18
+        }
+
+        var t1;
+        for (t1 in t) {
+            t1
+        }
+
+
+        // (a>b) ? a : b
+        // if (a > b) {
+        //     return a;
+        // } else {
+        //     return b;
+        // }
+
+        getURL();
+
+        function getURL()  {         
+            console.log("The URL of this page: " + window.location.href);                    
+            console.log("The URL protocol" + window.location.protocol);                      
+            console.log("The Hostname with port:" + window.location.host);                        
+            console.log("The Hostname:" + window.location.hostname);                    
+            console.log("The port number:" + window.location.port);                         
+            console.log("The pathname:" + window.location.pathname);                     
+            console.log("The Query string with paramater:" + window.location.search);                   
+            console.log("The fragment identifier:" + window.location.hash);   
+
+        }    
+        function  loadNewPage() {        
+            window.location.assign("https://www.w3schools.com/js/js_window_location.asp");   
+        }    
+        function  replaceNewPage() {       
+            window.location.replace("https://developer.mozilla.org/en-US/docs/Web/API/Window/location");    
+        }    
+        function  forceReload()  {       
+            window.location.reload(true);    
+        }
+
+        function  getBack() {          
+            window.history.back();     
+        }     
+        function  goForward() {          
+            window.history.forward();     
+        }
+
+        function replaceE() {
+            var  parent  =  document.getElementById("div1");   
+            var  child  =  document.getElementById("p1");   
+            var  para  =  document.createElement("p");   
+            var  node  =  document.createTextNode("This is new.");   
+            para.appendChild(node);   
+            parent.replaceChild(para, child);
+
+        }
+
+        function removeE() { 
+            var  parent  =  document.getElementById("div1");   
+            var  child  =  document.getElementById("p1");   
+            parent.removeChild(child);
+
+        }
+
+        function ulClick() {
+            alert('ul click')
+        }
+
+        function liClick() {
+            event.stopPropagation();
+            alert('li click')
+        }
+
+        function myFunction() {
+            var regex = /^\d+$|^[a-zA-Z]+$/;
+
+            // var regex = /(\w+|\d+)/;
+
+            var myDom = document.getElementById('myDom').value
+            console.log(myDom.match(regex))
+
+            if (regex.test(myDom)) {
+                alert(true)
+            } else {
+                alert(false)
+            }
+
+        }
+
+        function add(a, b, c) {
+            alert(a + b)
+                //return a + b;
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+.wrapper{
+    margin: 0 auto;
+    width: 90%;
+    height: 200px;
+    /* background-color: tomato; */
+    /* container flexbox */
+    display: flex;
+    /* flex-direction: row-reverse; */
+    justify-content: space-between;
+    /* wraper vung noi dung xuong hang */
+    flex-wrap: wrap;
+    margin-bottom: 2em;
+}
+.wrapper .item{
+    width: 32%;
+    height: 100%;
+}
+.area1{
+    order: 3;
+    background-color: teal;
+}
+.area2{
+    order: 1;
+    background-color: yellow;
+}
+.area3{
+    order: 2;
+    background-color: violet;
+}
+/* Tablet */
+@media screen and (min-width: 415px) and (max-width: 960px) {
+    .area1{
+        width: 100% !important;
+        height: 100px !important;
+        order: 1;
+    }
+    .area2{
+        width: 50% !important;
+        order: 2;
+    }
+    .area3{
+        width: 50% !important;
+        order: 3;
+    }
+}

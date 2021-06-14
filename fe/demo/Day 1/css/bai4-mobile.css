@@ -1,0 +1,15 @@
+/* Mobile */
+@media screen and (max-width: 414px){
+    .wrapper .item{
+        width: 100%;
+    }
+    .area1{
+        order: 1;
+    }
+    .area2{
+        order: 2;
+    }
+    .area3{
+        order: 3;
+    }
+}

@@ -1,0 +1,28 @@
+.area{
+    float: left;
+    width: 30%;
+    height: 300px;
+    margin-bottom: 2em;
+}
+.diff{
+    background-color: teal;
+}
+.diff2{
+    margin: 0 2em;
+    background-color: tomato;
+}
+.other{
+    clear: both;
+    margin: 0 auto;
+    width: 95%;
+    height: 100px;
+    background-color: violet;
+}
+/* Tao khoang ho giua cac vung/block
+ - margin: top right bottom left;
+ vd: margin: 3em 2em 3em 2em;
+ - margin: top-bottom left-right;
+ vd: margin: 3em 2em;
+ - margin tung huong: 
+ vd: margin-top: 3em; 
+*/
